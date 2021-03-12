@@ -10,12 +10,32 @@ from time import sleep
 ・todoのクラスファイル
 ・登録、削除、編集、更新機能
 ・入力チェック機能
-
 """
-
+# 説明変数
 app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
 current_task = '現在抱えているタスクはこちらです'
+blank = ''
+border = '-----------------------------------------------------------------------------------------'
+introduction = 'タスクを登録する際は1を押してください。'
+task_create = 'タスクを登録します'
+
+# Task変数
+tasks = ['日報を書く','日報を提出']
 
 print(app_self)
-sleep(3)
 print(current_task)
+
+#タスクの表示
+while True:
+    sleep(3)
+    print(blank)
+    print(border)
+    for i , task in enumerate(tasks):
+        print(f'{i}:{task}')
+    print(border)
+    select = input(introduction)
+    if select == '1' :
+        print(task_create)
+    else:
+        print('1じゃありません')
+        break
