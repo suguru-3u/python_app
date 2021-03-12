@@ -22,6 +22,8 @@ task_create = 'タスクを登録します'
 # Task変数
 tasks = ['日報を書く','日報を提出']
 
+print(blank)
+
 print(app_self)
 print(current_task)
 
