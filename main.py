@@ -38,10 +38,12 @@ while True:
     select = input(introduction)
     if select == '1' :
         print(task_create)
-        input_task = input('登録したい内容を記入してください！')
+        input_task_create = input('登録したい内容を記入してください！')
         tasks.append(input_task)
     elif select == '3':
         print('Taskを削除します')
+        input_task_del = input('削除したいTaskの番号を入力してください')
+        tasks.pop(int(input_task_del))
     else:
         print('1じゃありません')
         break
