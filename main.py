@@ -28,13 +28,34 @@ print(blank)
 print(app_self)
 print(current_task)
 
+# Change String to int
 def input_type_change_int(string):
     return int(string)
 
-def task_Create():
+# Create task
+def Create_task():
     print(task_create)
     input_task_create = input('登録したい内容を記入してください！') 
     tasks.append(input_task_create)
+
+# Edit task
+def Edit_task():
+    print('Task内容を変更します。')
+    input_task_edit = input('変更したいTaskの番号を入力してください')
+    print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
+    input_yours_edit_select = input('間違いなければyを入力してください')
+    if input_yours_edit_select == 'y':
+        edit_task = input('変更内容を教えてください')
+        print('Task内容を変更します')
+        tasks.pop(int(input_task_edit))
+        tasks.insert(int(input_task_edit), edit_task)
+
+# Delte task
+def Delete_task():
+    print('Taskを削除します')
+    input_task_del = input('削除したいTaskの番号を入力してください')
+    input_task_del = input_type_change_int(input_task_del)
+    tasks.pop(input_task_del)
 
 
 #タスクの表示
@@ -48,22 +69,11 @@ while True:
     print(blank)
     select = input(introduction)
     if select == '1' :
-        task_Create()
+        Create_task()
     elif select == '2':
-        print('Task内容を変更します。')
-        input_task_edit = input('変更したいTaskの番号を入力してください')
-        print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
-        input_yours_edit_select = input('間違いなければyを入力してください')
-        if input_yours_edit_select == 'y':
-            edit_task = input('変更内容を教えてください')
-            print('Task内容を変更します')
-            tasks.pop(int(input_task_edit))
-            tasks.insert(int(input_task_edit), edit_task)
+        Edit_task()
     elif select == '3':
-        print('Taskを削除します')
-        input_task_del = input('削除したいTaskの番号を入力してください')
-        input_task_del = input_type_change_int(input_task_del)
-        tasks.pop(input_task_del)
+        Delete_task()
     else:
         print('1じゃありません')
         break
