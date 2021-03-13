@@ -28,6 +28,15 @@ print(blank)
 print(app_self)
 print(current_task)
 
+def input_type_change_int(string):
+    return int(string)
+
+def task_Create():
+    print(task_create)
+    input_task_create = input('登録したい内容を記入してください！') 
+    tasks.append(input_task_create)
+
+
 #タスクの表示
 while True:
     sleep(3)
@@ -39,9 +48,7 @@ while True:
     print(blank)
     select = input(introduction)
     if select == '1' :
-        print(task_create)
-        input_task_create = input('登録したい内容を記入してください！')
-        tasks.append(input_task)
+        task_Create()
     elif select == '2':
         print('Task内容を変更します。')
         input_task_edit = input('変更したいTaskの番号を入力してください')
@@ -55,7 +62,8 @@ while True:
     elif select == '3':
         print('Taskを削除します')
         input_task_del = input('削除したいTaskの番号を入力してください')
-        tasks.pop(int(input_task_del))
+        input_task_del = input_type_change_int(input_task_del)
+        tasks.pop(input_task_del)
     else:
         print('1じゃありません')
         break
