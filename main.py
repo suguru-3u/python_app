@@ -23,23 +23,32 @@ task_create = 'タスクを登録します'
 # Task変数
 tasks = ['日報を書く','日報を提出']
 
-print(blank)
-
-print(app_self)
-print(current_task)
 
 # Change String to int
 def input_type_change_int(string):
     return int(string)
 
+# Cheak input blenk
+def cheak_input_blenk(yuor_input):
+    if not yuor_input:
+        return True
+    else:
+        return False
+
 # Create task
 def Create_task():
+    print(blank)
     print(task_create)
     input_task_create = input('登録したい内容を記入してください！') 
-    tasks.append(input_task_create)
+    if cheak_input_blenk(input_task_create):
+        print('空白では登録できません\n入力をやり直してください')
+    else:
+        print('登録します')
+        tasks.append(input_task_create)
 
 # Edit task
 def Edit_task():
+    print(blank)
     print('Task内容を変更します。')
     input_task_edit = input('変更したいTaskの番号を入力してください')
     print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
@@ -52,6 +61,7 @@ def Edit_task():
 
 # Delte task
 def Delete_task():
+    print(blank)
     print('Taskを削除します')
     input_task_del = input('削除したいTaskの番号を入力してください')
     input_task_del = input_type_change_int(input_task_del)
@@ -59,6 +69,7 @@ def Delete_task():
 
 # End judgment
 def task_app_end_judgment():
+    print(blank)
     print('アプリを終了します。よろしいですか?')
     task_app_end_select = input('終了する場合はyを入力してください')
     if task_app_end_select == 'y':
@@ -70,6 +81,9 @@ def task_app_end_judgment():
 
 
 #Main function
+print(blank)
+print(app_self)
+print(current_task)
 while True:
     sleep(3)
     print(blank)
@@ -92,5 +106,6 @@ while True:
         else:
             continue
     else:
+        print(blank)
         print('正しく入力してください')
         
