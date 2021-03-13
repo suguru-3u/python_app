@@ -17,7 +17,7 @@ app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わな�
 current_task = '現在抱えているタスクはこちらです'
 blank = ''
 border = '-----------------------------------------------------------------------------------------'
-introduction = '・タスクを登録する際は1を押してください。\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください'
+introduction = '・タスクを登録する際は1を押してください。\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください\n・アプリを終了する際はqを押してください'
 task_create = 'タスクを登録します'
 
 # Task変数
@@ -57,8 +57,19 @@ def Delete_task():
     input_task_del = input_type_change_int(input_task_del)
     tasks.pop(input_task_del)
 
+# End judgment
+def task_app_end_judgment():
+    print('アプリを終了します。よろしいですか?')
+    task_app_end_select = input('終了する場合はyを入力してください')
+    if task_app_end_select == 'y':
+        print('アプリを終了します。')
+        return 1
+    else:
+        print('アプリを継続します')
+        return 2
 
-#タスクの表示
+
+#Main function
 while True:
     sleep(3)
     print(blank)
@@ -74,6 +85,12 @@ while True:
         Edit_task()
     elif select == '3':
         Delete_task()
+    elif select == 'q':
+        end_judgment = task_app_end_judgment()
+        if end_judgment == 1:
+            break
+        else:
+            continue
     else:
-        print('1じゃありません')
-        break
+        print('正しく入力してください')
+        
