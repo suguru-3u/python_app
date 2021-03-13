@@ -38,6 +38,7 @@ while True:
     select = input(introduction)
     if select == '1' :
         print(task_create)
+        input_task = input('登録したい内容を記入してください！')
     else:
         print('1じゃありません')
         break
