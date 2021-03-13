@@ -11,12 +11,13 @@ from time import sleep
 ・登録、削除、編集、更新機能
 ・入力チェック機能
 """
+
 # 説明変数
 app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
 current_task = '現在抱えているタスクはこちらです'
 blank = ''
 border = '-----------------------------------------------------------------------------------------'
-introduction = '・タスクを登録する際は1を押してください。\n・タスクを削除する際は3を押してください'
+introduction = '・タスクを登録する際は1を押してください。\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください'
 task_create = 'タスクを登録します'
 
 # Task変数
@@ -35,11 +36,22 @@ while True:
     for i , task in enumerate(tasks):
         print(f'{i}:{task}')
     print(border)
+    print(blank)
     select = input(introduction)
     if select == '1' :
         print(task_create)
         input_task_create = input('登録したい内容を記入してください！')
         tasks.append(input_task)
+    elif select == '2':
+        print('Task内容を変更します。')
+        input_task_edit = input('変更したいTaskの番号を入力してください')
+        print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
+        input_yours_edit_select = input('間違いなければyを入力してください')
+        if input_yours_edit_select == 'y':
+            edit_task = input('変更内容を教えてください')
+            print('Task内容を変更します')
+            tasks.pop(int(input_task_edit))
+            tasks.insert(int(input_task_edit), edit_task)
     elif select == '3':
         print('Taskを削除します')
         input_task_del = input('削除したいTaskの番号を入力してください')
