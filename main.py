@@ -2,7 +2,7 @@
 from time import sleep
 import MySQLdb
 import os
-import sql.py
+import sql
 
 """
 <Read me>
@@ -23,9 +23,6 @@ border = '----------------------------------------------------------------------
 introduction = '・タスクを登録する際は1を押してください\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください\n・アプリを終了する際はqを押してください'
 task_create = 'タスクを登録します'
 
-# Task変数
-tasks = ['日報を書く','日報を提出']
-
 
 # Change String to int
 def input_type_change_int(string):
@@ -38,6 +35,15 @@ def cheak_input_blenk(yuor_input):
     else:
         return False
 
+# Get tasks
+# def get_tasks():
+#     tasks = sql.get_tasks()
+#     if not tasks:
+#         print('**********現在抱えているTaskはございません**********')
+#     else:
+#         # for task in tasks:
+#         print(tasks)
+
 # Create task
 def Create_task():
     print(blank)
@@ -47,15 +53,15 @@ def Create_task():
         print('**********空白では登録できません**********\n**********入力をやり直してください**********')
     else:
         print('登録します')
-        create_task_db(input_task_create)
+        sql.create_task_db(input_task_create)
 
 # Edit task
 def Edit_task():
     print(blank)
     print('Task内容を変更します。')
     try:
-        input_task_edit = input('変更したいTaskの番号を入力してください')
-        print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
+        input_task_edit = input_type_change_int(input('変更したいTaskの番号を入力してください'))
+        # print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
     except IndexError:
         print(blank)
         print('**********存在する登録番号を入力してください**********')
@@ -67,8 +73,9 @@ def Edit_task():
         if input_yours_edit_select == 'y':
             edit_task = input('変更内容を教えてください')
             print('Task内容を変更します')
-            tasks.pop(int(input_task_edit))
-            tasks.insert(int(input_task_edit), edit_task)
+            sql.edit_task_db(edit_task,input_task_edit)
+            # tasks.pop(int(input_task_edit))
+            # tasks.insert(int(input_task_edit), edit_task)
 
 # Delte task
 def Delete_task():
@@ -77,7 +84,7 @@ def Delete_task():
     try:
         input_task_del = input('削除したいTaskの番号を入力してください')
         input_task_del = input_type_change_int(input_task_del)
-        tasks.pop(input_task_del)
+        sql.delete_task_db(input_task_del)
     except IndexError:
         print(blank)
         print('**********存在する登録番号を入力してください**********')
@@ -109,8 +116,7 @@ while True:
         sleep(3)
         print(blank)
         print(border)
-        for i , task in enumerate(tasks):
-            print(f'番号{i}:「{task}」')
+        sql.get_tasks()
         print(border)
         print(blank)
         select = input(introduction)
@@ -123,6 +129,7 @@ while True:
         elif select == 'q':
             end_judgment = task_app_end_judgment()
             if end_judgment == 1:
+                os.system('mysql.server stop')
                 break
             else:
                 continue
