@@ -1,5 +1,8 @@
 # coding:utf-8
 from time import sleep
+import MySQLdb
+import os
+import sql.py
 
 """
 <Read me>
@@ -44,7 +47,7 @@ def Create_task():
         print('**********空白では登録できません**********\n**********入力をやり直してください**********')
     else:
         print('登録します')
-        tasks.append(input_task_create)
+        create_task_db(input_task_create)
 
 # Edit task
 def Edit_task():
