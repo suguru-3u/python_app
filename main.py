@@ -43,7 +43,7 @@ def Create_task():
         print('**********空白では登録できません**********\n**********入力をやり直してください**********')
     else:
         print('登録します')
-        create_task_db(input_task_create)
+        sql.create_task_db(input_task_create)
 
 # Edit task
 def Edit_task():
@@ -51,7 +51,7 @@ def Edit_task():
     print('Task内容を変更します。')
     try:
         input_task_edit = input('変更したいTaskの番号を入力してください')
-        print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
+        # print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
     except IndexError:
         print(blank)
         print('**********存在する登録番号を入力してください**********')
@@ -63,8 +63,8 @@ def Edit_task():
         if input_yours_edit_select == 'y':
             edit_task = input('変更内容を教えてください')
             print('Task内容を変更します')
-            tasks.pop(int(input_task_edit))
-            tasks.insert(int(input_task_edit), edit_task)
+            # tasks.pop(int(input_task_edit))
+            # tasks.insert(int(input_task_edit), edit_task)
 
 # Delte task
 def Delete_task():
@@ -73,7 +73,7 @@ def Delete_task():
     try:
         input_task_del = input('削除したいTaskの番号を入力してください')
         input_task_del = input_type_change_int(input_task_del)
-        tasks.pop(input_task_del)
+        # tasks.pop(input_task_del)
     except IndexError:
         print(blank)
         print('**********存在する登録番号を入力してください**********')
@@ -105,8 +105,8 @@ while True:
         sleep(3)
         print(blank)
         print(border)
-        for i , task in enumerate(tasks):
-            print(f'番号{i}:「{task}」')
+        # for i , task in enumerate(tasks):
+        #     print(f'番号{i}:「{task}」')
         print(border)
         print(blank)
         select = input(introduction)
