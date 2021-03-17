@@ -73,7 +73,7 @@ def Delete_task():
     try:
         input_task_del = input('削除したいTaskの番号を入力してください')
         input_task_del = input_type_change_int(input_task_del)
-        # tasks.pop(input_task_del)
+        sql.tasks.pop(input_task_del)
     except IndexError:
         print(blank)
         print('**********存在する登録番号を入力してください**********')
