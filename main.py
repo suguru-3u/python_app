@@ -67,33 +67,33 @@ def Edit_task():
             # tasks.insert(int(input_task_edit), edit_task)
 
 # Delte task
-def Delete_task():
-    print(blank)
-    print('Taskを削除します')
-    try:
-        input_task_del = input('削除したいTaskの番号を入力してください')
-        input_task_del = input_type_change_int(input_task_del)
-        sql.tasks.pop(input_task_del)
-    except IndexError:
-        print(blank)
-        print('**********存在する登録番号を入力してください**********')
-    except ValueError:
-        print(blank)
-        print('**********空白で入力しないでください**********')
-    else:
-        print('削除に成功しました！')
+# def Delete_task():
+#     print(blank)
+#     print('Taskを削除します')
+#     try:
+#         input_task_del = input('削除したいTaskの番号を入力してください')
+#         input_task_del = input_type_change_int(input_task_del)
+#         sql.tasks.pop(input_task_del)
+#     except IndexError:
+#         print(blank)
+#         print('**********存在する登録番号を入力してください**********')
+#     except ValueError:
+#         print(blank)
+#         print('**********空白で入力しないでください**********')
+#     else:
+#         print('削除に成功しました！')
 
-# End judgment
-def task_app_end_judgment():
-    print(blank)
-    print('アプリを終了します。よろしいですか?')
-    task_app_end_select = input('終了する場合はyを入力してください')
-    if task_app_end_select == 'y':
-        print('アプリを終了します。')
-        return 1
-    else:
-        print('アプリを継続します')
-        return 2
+# # End judgment
+# def task_app_end_judgment():
+#     print(blank)
+#     print('アプリを終了します。よろしいですか?')
+#     task_app_end_select = input('終了する場合はyを入力してください')
+#     if task_app_end_select == 'y':
+#         print('アプリを終了します。')
+#         return 1
+#     else:
+#         print('アプリを継続します')
+#         return 2
 
 
 #Main function
