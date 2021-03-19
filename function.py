@@ -16,6 +16,13 @@ border = '----------------------------------------------------------------------
 introduction = '・タスクを登録する際は1を押してください\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください\n・アプリを終了する際はqを押してください'
 task_create = 'タスクを登録します'
 
+# Cheak input blenk
+def cheak_input_blenk(yuor_input):
+    if not yuor_input:
+        return True
+    else:
+        return False
+
 
 # Create task
 def Create_task():
@@ -27,6 +34,7 @@ def Create_task():
     else:
         print('登録します')
         create_task_db(input_task_create)
+        return True
 
 # Edit task
 def Edit_task():
