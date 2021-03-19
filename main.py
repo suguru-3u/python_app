@@ -1,9 +1,10 @@
 # coding:utf-8
 from time import sleep
-import MySQLdb
+# import MySQLdb
 import os
 from sql import get_tasks
 from sql import create_task_db
+from sql import delete_task_db
 
 """
 <Read me>
@@ -74,7 +75,7 @@ def Delete_task():
     try:
         input_task_del = input('削除したいTaskの番号を入力してください')
         input_task_del = input_type_change_int(input_task_del)
-        sql.tasks.pop(input_task_del)
+        delete_task_db(input_task_del)
     except IndexError:
         print(blank)
         print('**********存在する登録番号を入力してください**********')
@@ -98,8 +99,6 @@ def task_app_end_judgment():
 
 
 #Main function
-os.system('mysql.server start')
-print('Mysql起動')
 print(blank)
 print(app_self)
 print(current_task)
