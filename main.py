@@ -5,6 +5,7 @@ import os
 from sql import get_tasks
 from sql import create_task_db
 from sql import delete_task_db
+from sql import edit_task_db
 
 """
 <Read me>
@@ -53,7 +54,6 @@ def Edit_task():
     print('Task内容を変更します。')
     try:
         input_task_edit = input('変更したいTaskの番号を入力してください')
-        # print(f'「{tasks[int(input_task_edit)]}」のTaskでお間違いないですか?')
     except IndexError:
         print(blank)
         print('**********存在する登録番号を入力してください**********')
@@ -65,25 +65,17 @@ def Edit_task():
         if input_yours_edit_select == 'y':
             edit_task = input('変更内容を教えてください')
             print('Task内容を変更します')
-            # tasks.pop(int(input_task_edit))
-            # tasks.insert(int(input_task_edit), edit_task)
+            edit_task_db(edit_task,input_task_edit)
 
 # Delte task
 def Delete_task():
     print(blank)
-    print('Taskを削除します')
-    try:
-        input_task_del = input('削除したいTaskの番号を入力してください')
-        input_task_del = input_type_change_int(input_task_del)
-        delete_task_db(input_task_del)
-    except IndexError:
-        print(blank)
-        print('**********存在する登録番号を入力してください**********')
-    except ValueError:
-        print(blank)
-        print('**********空白で入力しないでください**********')
-    else:
-        print('削除に成功しました！')
+    print('Taskを削除します')   
+    input_task_del = input('削除したいTaskの番号を入力してください')
+    input_task_del = input_type_change_int(input_task_del)
+    delete_task_db(input_task_del)
+    print('削除に成功しました！')
+
 
 # End judgment
 def task_app_end_judgment():
