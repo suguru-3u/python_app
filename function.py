@@ -42,20 +42,20 @@ def Create_task(task_string):
 def Edit_task():
     print(blank)
     print('Task内容を変更します。')
-    try:
-        input_task_edit = input('変更したいTaskの番号を入力してください')
-    except IndexError:
-        print(blank)
-        print('**********存在する登録番号を入力してください**********')
-    except ValueError:
-        print(blank)
-        print('**********空白で入力しないでください**********')
-    else:
-        input_yours_edit_select = input('間違いなければyを入力してください')
-        if input_yours_edit_select == 'y':
-            edit_task = input('変更内容を教えてください')
-            print('Task内容を変更します')
-            edit_task_db(edit_task,input_task_edit)
+    # try:
+    #     input_task_edit = input('変更したいTaskの番号を入力してください')
+    # except IndexError:
+    #     print(blank)
+    #     print('**********存在する登録番号を入力してください**********')
+    # except ValueError:
+    #     print(blank)
+    #     print('**********空白で入力しないでください**********')
+    # else:
+    input_yours_edit_select = input('間違いなければyを入力してください')
+    if input_yours_edit_select == 'y':
+        edit_task = input('変更内容を教えてください')
+        print('Task内容を変更します')
+        edit_task_db(edit_task,input_task_edit)
 
 # Delte task
 def Delete_task():
