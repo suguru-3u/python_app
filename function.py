@@ -17,24 +17,29 @@ introduction = '・タスクを登録する際は1を押してください\n・�
 task_create = 'タスクを登録します'
 
 # Cheak input blenk
-def cheak_input_blenk(yuor_input):
-    if not yuor_input:
+def cheak_input_blenk(task_string):
+    if not task_string:
+        print('**********空白では登録できません**********\n**********入力をやり直してください**********')
         return True
     else:
         return False
 
+    # input_task_create = input('登録したい内容を記入してください！') 
+    # if cheak_input_blenk(input_task_create):
+    # else:
 
 # Create task
-def Create_task():
+def Create_task(task_string):
     print(blank)
     print(task_create)
-    input_task_create = input('登録したい内容を記入してください！') 
-    if cheak_input_blenk(input_task_create):
-        print('**********空白では登録できません**********\n**********入力をやり直してください**********')
+    print(f'登録する内容は「{task_string}」でお間違え無いですか？')
+    yours_select = input('お間違いなければ「y」を入力してください')
+    if yours_select == 'y':
+        print('登録を開始します')
+        create_task = create_task_db(task_string)
+        return create_task
     else:
-        print('登録します')
-        create_task_db(input_task_create)
-        return True
+        print('登録を中止します')
 
 # Edit task
 def Edit_task():
