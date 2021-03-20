@@ -33,9 +33,10 @@ def Create_task(task_string):
     if yours_select == 'y':
         print('登録を開始します')
         create_task = create_task_db(task_string)
-        return create_task
+        return True
     else:
         print('登録を中止します')
+        return False
 
 # Edit task
 def Edit_task():
