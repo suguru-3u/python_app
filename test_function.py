@@ -55,15 +55,15 @@ class TestCalc(unittest.TestCase):
 
 
   # # 結合テスト
-  # def test_Create_task_1(self):
-  #   print('test_Create_taskのテスト開始')
-  #   self.assertEqual(True, function.Create_task(TestCalc.task))   
-  #   print('test_Create_taskのテスト終了')
+  def test_Create_task_1(self):
+    print('test_Create_taskのテスト開始')
+    self.assertEqual(True, function.Create_task(TestCalc.task))   
+    print('test_Create_taskのテスト終了')
 
-  # def test_Create_task_2(self):
-  #   print('test_Create_taskのテスト開始')
-  #   self.assertEqual(False, function.Create_task(TestCalc.task))   
-  #   print('test_Create_taskのテスト終了')
+  def test_Create_task_2(self):
+    print('test_Create_taskのテスト開始')
+    self.assertEqual(False, function.Create_task(TestCalc.task))   
+    print('test_Create_taskのテスト終了')
 
   # # 結合テスト
   # def test_Edit_task_1(self):
