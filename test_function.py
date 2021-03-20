@@ -13,6 +13,7 @@ class TestCalc(unittest.TestCase):
 
   def tearDownClass():
       print('*** 全体後処理 ***')
+      
  
  
   def setUp(self):
@@ -22,6 +23,7 @@ class TestCalc(unittest.TestCase):
   def tearDown(self):
       print('+ テスト後処理')
 
+  # 単体テスト
   def test_cheak_input_blenk(self):
     print('test_cheak_input_blenkのテスト開始')
     self.assertEqual(True, function.cheak_input_blenk(TestCalc.blank_task))   
@@ -41,6 +43,12 @@ class TestCalc(unittest.TestCase):
     print('task_app_end_judgmentのテスト開始')
     self.assertEqual(2, function.task_app_end_judgment())   
     print('task_app_end_judgmentのテスト終了')
+
+  # 結合テスト
+  def test_Create_task(self):
+    print('test_Create_taskのテスト開始')
+    self.assertEqual(2, function.Create_task(TestCalc.task))   
+    print('test_Create_taskのテスト終了')
   
 if __name__ == '__main__':
     unittest.main()

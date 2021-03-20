@@ -24,10 +24,6 @@ def cheak_input_blenk(task_string):
     else:
         return False
 
-    # input_task_create = input('登録したい内容を記入してください！') 
-    # if cheak_input_blenk(input_task_create):
-    # else:
-
 # Create task
 def Create_task(task_string):
     print(blank)
