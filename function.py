@@ -28,7 +28,6 @@ def input_type_change_int(string):
 # Cheak input blank
 def cheak_input_blenk(task_string):
     if not task_string:
-        print('**********空白では登録できません**********\n**********入力をやり直してください**********')
         return True
     else:
         return False
