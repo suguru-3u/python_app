@@ -73,20 +73,34 @@ class task_document:
 
     # Task編集処理
     def Edit_task():
-        print(blank)
+        task_document.blank()
         print('Task内容を変更します。')
         input_task_edit_number = input('変更したいTaskの番号を入力してください')
-        if task_document.cheak_input_blenk(input_task_del_number):
-             print('**********空白では登録できません********************入力をやり直してください**********')
-            print('削除を中止します')
+        if task_document.cheak_input_blenk(input_task_edit_number):
+            print('**********空白では登録できません********************入力をやり直してください**********')
+            print('変更を中止します')
             return False
         else:
-            edit_search_task = edit_search_task_db
-            print(edit_search_task)
-            # print(f'登録する内容は「{input_task}」でお間違え無いですか？')
-            # input_yours_edit_select = input('間違いなければyを入力してください')
-            # if input_yours_edit_select == 'y':
-            #     edit_task = input('変更内容を教えてください')
-            #     print('Task内容を変更します')
-            #     edit_task_db(edit_task,input_task_edit)
-                        
+            input_task_edit = task_document.input_type_change_int(input_task_edit_number)
+            result_edit =  edit_search_task_db(input_task_edit)
+            print(f'変更する内容は「{result_edit[0][1]}」でお間違え無いですか？')
+            your_select = input('お間違いなければ「y」を入力してください')
+            if your_select == 'y':
+                edit_task = input('変更内容を入力してください')
+                if task_document.cheak_input_blenk(edit_task):
+                    print('**********空白では登録できません********************入力をやり直してください**********')
+                    print('変更を中止します')
+                    return False
+                else:
+                    print(f'変更する内容は「{edit_task}」でお間違え無いですか？')
+                    your_select = input('お間違いなければ「y」を入力してください')
+                    if your_select == 'y':
+                        print('変更を開始します')
+                        edit_task_db(edit_task,input_task_edit_number)
+                        print('変更が成功しました')
+                        return True
+                    else:
+                        return False
+            else:
+                print('変更を中止します')
+                return False

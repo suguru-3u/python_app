@@ -12,14 +12,9 @@
 # coding:utf-8
 from time import sleep
 import os
-from function import input_task
-from function import cheak_input_blenk
-# from function import Create_task
-# from function import Edit_task
-# from function import Delete_task
-from function import task_app_end_judgment
 from sql import get_tasks
 from task_design_document import task_document
+from function import task_app_function
 
 # 説明変数
 app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
@@ -49,7 +44,7 @@ while True:
         elif select == '3':
             task_document.Delete_task()
         elif select == 'q':
-            end_judgment = task_app_end_judgment()
+            end_judgment = task_app_function.task_app_end_judgment()
             if end_judgment == 1:
                 os.system('mysql.server stop')
                 print('Mysql停止')
