@@ -1,12 +1,3 @@
-# coding:utf-8
-from time import sleep
-import os
-from function import Create_task
-from function import Edit_task
-from function import Delete_task
-from function import task_app_end_judgment
-from sql import get_tasks
-
 """
 <Read me>
 このアプリはPythonとSQLのみを使用したTodoアプリです。
@@ -17,6 +8,16 @@ from sql import get_tasks
 ・登録、削除、編集、更新機能
 ・入力チェック機能
 """
+
+# coding:utf-8
+from time import sleep
+import os
+from function import Create_task
+from function import Edit_task
+from function import Delete_task
+from function import task_app_end_judgment
+from sql import get_tasks
+
 
 # 説明変数
 app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
