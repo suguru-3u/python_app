@@ -12,6 +12,7 @@
 # coding:utf-8
 from time import sleep
 import os
+import task_design_document
 from function import input_task
 from function import cheak_input_blenk
 # from function import Create_task
@@ -30,6 +31,7 @@ introduction = '・タスクを登録する際は1を押してください\n・�
 task_create = 'タスクを登録します'
 
 #Main function
+task_module = task_design_document.task_document()
 print(blank)
 print(app_self)
 print(current_task)
@@ -43,10 +45,7 @@ while True:
         print(blank)
         select = input(introduction)
         if select == '1' :
-            # if cheak_input_blenk(input_task):
-            #     print('**********空白では登録できません**********\n**********入力をやり直してください**********')
-            # else:
-            Create_task()
+            task_module.Create_task()
         elif select == '2':
             Edit_task()
         elif select == '3':

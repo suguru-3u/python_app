@@ -3,7 +3,11 @@
 このクラス自体には受け取るだけの機能しかありませんが敬承を使い機能の拡充を行っております。
 """
 
-class task_design_document:
+from sql import create_task_db
+from sql import delete_task_db
+from sql import edit_task_db
+
+class task_document:
 
     task_create = 'タスクを登録します'
     app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
@@ -15,17 +19,15 @@ class task_design_document:
 
 
     # コンストラクト
-    def __init__(self,task,number,change_task):
-        self.task = task
-        self.task_number = number
-        self.change_task = change_task
+    # def __init__(self):
+    #   pass
 
     def blank():
         print('')
 
     def input_task():
-    input_task = input('登録したいTaskを入力してください')
-    return input_task
+        input_task = input('登録したいTaskを入力してください')
+        return input_task
 
     # Change String to int
     def input_type_change_int(string):
@@ -40,15 +42,21 @@ class task_design_document:
 
     # Task登録処理
     def Create_task():
-        blank()
+        task_document.blank()
         input_task = input('登録したいTaskを入力してください')
-        if cheak_input_blenk(input_task)
-            print(f'登録する内容は「{task_string}」でお間違え無いですか？')
-            yours_select = input('お間違いなければ「y」を入力してください')
-            if yours_select == 'y':
+        task_document.blank()
+        if task_document.cheak_input_blenk(input_task):
+                print('**********空白では登録できません********************入力をやり直してください**********')
+                print('登録を中止します')
+                return False
+        else:
+            print(f'登録する内容は「{input_task}」でお間違え無いですか？')
+            your_select = input('お間違いなければ「y」を入力してください')
+            if your_select == 'y':
                 print('登録を開始します')
-                create_task = create_task_db(task_string)
+                create_task_db(input_task)
+                print('登録が成功しました')
                 return True
             else:
-                print('登録を中止します')
-            return False
+                return False
+                    
