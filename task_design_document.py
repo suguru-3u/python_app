@@ -20,17 +20,35 @@ class task_design_document:
         self.task_number = number
         self.change_task = change_task
 
+    def blank():
+        print('')
+
+    def input_task():
+    input_task = input('登録したいTaskを入力してください')
+    return input_task
+
+    # Change String to int
+    def input_type_change_int(string):
+        return int(string)
+
+    # Cheak input blank
+    def cheak_input_blenk(task_string):
+        if not task_string:
+            return True
+        else:
+            return False
 
     # Task登録処理
     def Create_task():
-    print(blank)
-    print(task_create)
-    print(f'登録する内容は「{task_string}」でお間違え無いですか？')
-    yours_select = input('お間違いなければ「y」を入力してください')
-    if yours_select == 'y':
-        print('登録を開始します')
-        create_task = create_task_db(task_string)
-        return True
-    else:
-        print('登録を中止します')
-        return False
+        blank()
+        input_task = input('登録したいTaskを入力してください')
+        if cheak_input_blenk(input_task)
+            print(f'登録する内容は「{task_string}」でお間違え無いですか？')
+            yours_select = input('お間違いなければ「y」を入力してください')
+            if yours_select == 'y':
+                print('登録を開始します')
+                create_task = create_task_db(task_string)
+                return True
+            else:
+                print('登録を中止します')
+            return False
