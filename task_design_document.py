@@ -62,15 +62,16 @@ class task_document:
 
     # Task削除処理
     def Delete_task():
-        print(blank)
+        task_document.blank()
         print('Taskを削除します')   
         input_task_del_number = input('削除したいTaskの番号を入力してください')
-        if task_document.cheak_input_blenk(input_task):
+        if task_document.cheak_input_blenk(input_task_del_number):
             print('**********空白では登録できません********************入力をやり直してください**********')
-            print('登録を中止します')
+            print('削除を中止します')
             return False
         else:
-            input_task_del = input_type_change_int(input_task_del)
+            input_task_del = task_document.input_type_change_int(input_task_del_number)
             delete_task_db(input_task_del)
             print('削除に成功しました！')
+            return True
                         

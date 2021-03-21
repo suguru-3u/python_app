@@ -12,9 +12,6 @@ class TestCalc(unittest.TestCase):
 
   def setUpClass():
       print('*** 全体前処理 ***')
-      print(TestCalc.border)
-      sql.get_tasks()
-      print(TestCalc.border)
  
   def setUp(self):
       print('+ テスト前処理')
@@ -24,7 +21,6 @@ class TestCalc(unittest.TestCase):
 
   def tearDownClass():
       print('*** 全体後処理 ***')
-      sql.delete_like_task_db(TestCalc.task)
       os.system('mysql.server stop')
       print('Mysql停止')
 
@@ -56,18 +52,22 @@ class TestCalc(unittest.TestCase):
   #   print(TestCalc.blank)
 
 
-  def test_Delete_task(self):
+  def test_Delete_task_1(self):
+    sql.create_demo_task_db()
+    print(TestCalc.border)
+    sql.get_tasks()
+    print(TestCalc.border)
     print(TestCalc.blank)
-    print('test_cheak_input_blenkのテスト開始')
-    self.assertEqual(False, function.Delete_task())   
-    print('test_cheak_input_blenkのテスト終了')
+    print('test_Delete_task_1のテスト開始')
+    self.assertEqual(True, task_document.Delete_task())   
+    print('test_Delete_task_1のテスト終了')
     print(TestCalc.blank)
 
-  def test_Delete_task(self):
+  def test_Delete_task_2(self):
     print(TestCalc.blank)
-    print('test_Delete_taskのテスト開始')
-    self.assertEqual(1, function.Delete_task())   
-    print('test_Delete_taskのテスト終了')
+    print('test_Delete_task_2のテスト開始')
+    self.assertEqual(False, task_document.Delete_task())   
+    print('test_Delete_task_2のテスト終了')
     print(TestCalc.blank)
 
   # def test_task_app_end_judgment_2(self):
