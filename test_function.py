@@ -7,14 +7,14 @@ from task_design_document import task_document
 
 class TestCalc(unittest.TestCase):
 
-  task = ''
-  blank_task = ''
+  border = '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
+  blank = ''
 
   def setUpClass():
       print('*** 全体前処理 ***')
-      TestCalc.task = 'お昼を食べる'
-      TestCalc.blank_task = ''
+      print(TestCalc.border)
       sql.get_tasks()
+      print(TestCalc.border)
  
   def setUp(self):
       print('+ テスト前処理')
@@ -31,22 +31,30 @@ class TestCalc(unittest.TestCase):
 
   # 単体テスト
   # def test_Create_task_1(self):
+  #   print(TestCalc.blank)
   #   print('test_Create_taskのテスト開始')
   #   print('案内通りにTaskを入力してください')
   #   self.assertEqual(True, task_document.Create_task())   
   #   print('test_Create_taskのテスト終了')
+  #   print(TestCalc.blank)
   
   # def test_Create_task_2(self):
+  #   print(TestCalc.blank)
   #   print('test_Create_taskのテスト開始')
   #   print('Taskを空白で入力してください')
   #   self.assertEqual(False, task_document.Create_task())   
   #   print('test_Create_taskのテスト終了')
+      # print(TestCalc.blank)
+
 
   # def test_Create_task_3(self):
+  #   print(TestCalc.blank)
   #   print('test_Create_taskのテスト開始')
   #   print('入力確認で[y]以外を入力してください')
   #   self.assertEqual(False, task_document.Create_task())   
   #   print('test_Create_taskのテスト終了')
+  #   print(TestCalc.blank)
+
 
   # def test_cheak_input(self):
   #   print('test_cheak_input_blenkのテスト開始')
