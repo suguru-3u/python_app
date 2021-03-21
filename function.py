@@ -17,35 +17,6 @@ introduction = '・タスクを登録する際は1を押してください\n・�
 task_create = 'タスクを登録します'
 
 
-def input_task():
-    input_task = input('登録したいTaskを入力してください')
-    return input_task
-
-# Change String to int
-def input_type_change_int(string):
-    return int(string)
-
-# Cheak input blank
-def cheak_input_blenk(task_string):
-    if not task_string:
-        return True
-    else:
-        return False
-
-# Create task
-def Create_task(task_string):
-    print(blank)
-    print(task_create)
-    print(f'登録する内容は「{task_string}」でお間違え無いですか？')
-    yours_select = input('お間違いなければ「y」を入力してください')
-    if yours_select == 'y':
-        print('登録を開始します')
-        create_task = create_task_db(task_string)
-        return True
-    else:
-        print('登録を中止します')
-        return False
-
 # Edit task
 def Edit_task():
     print(blank)
@@ -64,15 +35,6 @@ def Edit_task():
         edit_task = input('変更内容を教えてください')
         print('Task内容を変更します')
         edit_task_db(edit_task,input_task_edit)
-
-# Delte task
-def Delete_task():
-    print(blank)
-    print('Taskを削除します')   
-    input_task_del = input('削除したいTaskの番号を入力してください')
-    input_task_del = input_type_change_int(input_task_del)
-    delete_task_db(input_task_del)
-    print('削除に成功しました！')
 
 
 # End judgment

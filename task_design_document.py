@@ -6,6 +6,7 @@
 from sql import create_task_db
 from sql import delete_task_db
 from sql import edit_task_db
+from sql import edit_search_task_db
 
 class task_document:
 
@@ -16,11 +17,6 @@ class task_document:
     border = '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     introduction = '・タスクを登録する際は1を押してください\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください\n・アプリを終了する際はqを押してください'
     task_create = 'タスクを登録します'
-
-
-    # コンストラクト
-    # def __init__(self):
-    #   pass
 
     def blank():
         print('')
@@ -74,4 +70,23 @@ class task_document:
             delete_task_db(input_task_del)
             print('削除に成功しました！')
             return True
+
+    # Task編集処理
+    def Edit_task():
+        print(blank)
+        print('Task内容を変更します。')
+        input_task_edit_number = input('変更したいTaskの番号を入力してください')
+        if task_document.cheak_input_blenk(input_task_del_number):
+             print('**********空白では登録できません********************入力をやり直してください**********')
+            print('削除を中止します')
+            return False
+        else:
+            edit_search_task = edit_search_task_db
+            print(edit_search_task)
+            # print(f'登録する内容は「{input_task}」でお間違え無いですか？')
+            # input_yours_edit_select = input('間違いなければyを入力してください')
+            # if input_yours_edit_select == 'y':
+            #     edit_task = input('変更内容を教えてください')
+            #     print('Task内容を変更します')
+            #     edit_task_db(edit_task,input_task_edit)
                         

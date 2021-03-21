@@ -45,9 +45,9 @@ while True:
         if select == '1' :
             task_document.Create_task()
         elif select == '2':
-            Edit_task()
+            task_document.Edit_task()
         elif select == '3':
-            Delete_task()
+            task_document.Delete_task()
         elif select == 'q':
             end_judgment = task_app_end_judgment()
             if end_judgment == 1:
