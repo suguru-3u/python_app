@@ -14,9 +14,9 @@ from time import sleep
 import os
 from function import input_task
 from function import cheak_input_blenk
-from function import Create_task
-from function import Edit_task
-from function import Delete_task
+# from function import Create_task
+# from function import Edit_task
+# from function import Delete_task
 from function import task_app_end_judgment
 from sql import get_tasks
 
@@ -25,7 +25,7 @@ from sql import get_tasks
 app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
 current_task = '現在抱えているタスクはこちらです'
 blank = ''
-border = '-----------------------------------------------------------------------------------------'
+border = '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
 introduction = '・タスクを登録する際は1を押してください\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください\n・アプリを終了する際はqを押してください'
 task_create = 'タスクを登録します'
 
@@ -43,10 +43,10 @@ while True:
         print(blank)
         select = input(introduction)
         if select == '1' :
-            if cheak_input_blenk(input_task):
-                print('**********空白では登録できません**********\n**********入力をやり直してください**********')
-            else:
-                Create_task()
+            # if cheak_input_blenk(input_task):
+            #     print('**********空白では登録できません**********\n**********入力をやり直してください**********')
+            # else:
+            Create_task()
         elif select == '2':
             Edit_task()
         elif select == '3':
