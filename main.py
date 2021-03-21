@@ -1,40 +1,30 @@
-"""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 <Read me>
-このアプリはPythonとSQLのみを使用したTodoアプリです。
-機能は登録、削除、編集、更新が行えます。データはMySQLに保存しておきます。
-このファイルは操作する際にmainで使用するファイルです。
-必要なもの
-・todoのクラスファイル
-・登録、削除、編集、更新機能
-・入力チェック機能
-"""
+このアプリはPythonとSQLを使用したTodoアプリです。
+機能は登録、削除、編集、更新が行えます。データはMySQLに保存しています。
+このファイルは操作する際にメインで使用するファイルです。
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 # coding:utf-8
-from time import sleep
 import os
-from sql import get_tasks
+from time import sleep
 from task_design_document import task_document
 from function import task_app_function
+from sql import get_tasks
+from sql import sql_stop
 
-# 説明変数
-app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
-current_task = '現在抱えているタスクはこちらです'
-blank = ''
-border = '------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
-introduction = '・タスクを登録する際は1を押してください\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください\n・アプリを終了する際はqを押してください'
-
-#Main function
-print(blank)
-print(app_self)
-print(current_task)
+#メイン処理
+task_app_function.blank()
+print(task_app_function.app_self)
+print(task_app_function.current_task)
 while True:
     try:
         sleep(3)
-        print(blank)
-        print(border)
+        task_app_function.blank()
+        print(task_app_function.border)
         get_tasks()
-        print(border)
-        print(blank)
+        print(task_app_function.border)
+        task_app_function.blank()
         select = input(introduction)
         if select == '1' :
             task_document.Create_task()
@@ -45,16 +35,15 @@ while True:
         elif select == 'q':
             end_judgment = task_app_function.task_app_end_judgment()
             if end_judgment == 1:
-                os.system('mysql.server stop')
-                print('Mysql停止')
+                sql_stop()
                 break
             else:
                 continue
         else:
-            print(blank)
+            task_app_function.blank()
             print('正しく入力してください')
     except KeyboardInterrupt:
-        print(blank)
-        print(blank)
+        task_app_function.blank()
+        task_app_function.blank()
         print('**********終了する場合はqを入力してください**********')
         
