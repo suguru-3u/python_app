@@ -1,25 +1,12 @@
-"""
-このファイルはユーザーが入力したタスクを受け取るようのクラスです。
-このクラス自体には受け取るだけの機能しかありませんが敬承を使い機能の拡充を行っております。
-"""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+<Read me>
+このファイルはTaskアプリの登録、削除、編集に関する処理が書かれています。
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-from sql import create_task_db
-from sql import delete_task_db
-from sql import edit_task_db
-from sql import edit_search_task_db
+from sql import task_db
+from function import task_app_function
 
 class task_document:
-
-    task_create = 'タスクを登録します'
-    app_self = 'ようこそ！\nこのアプリはTodoアプリです。行わなくてはいけないことをぜひ記入してください'
-    current_task = '現在抱えているタスクはこちらです'
-    blank = ''
-    border = '----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
-    introduction = '・タスクを登録する際は1を押してください\n・タスクを編集する際は2を押してください\n・タスクを削除する際は3を押してください\n・アプリを終了する際はqを押してください'
-    task_create = 'タスクを登録します'
-
-    def blank():
-        print('')
 
     def input_task():
         input_task = input('登録したいTaskを入力してください')
@@ -38,9 +25,9 @@ class task_document:
 
     # Task登録処理
     def Create_task():
-        task_document.blank()
+        task_app_function.blank()
         input_task = input('登録したいTaskを入力してください')
-        task_document.blank()
+        task_app_function.blank()
         if task_document.cheak_input_blenk(input_task):
                 print('**********空白では登録できません********************入力をやり直してください**********')
                 print('登録を中止します')
@@ -50,7 +37,7 @@ class task_document:
             your_select = input('お間違いなければ「y」を入力してください')
             if your_select == 'y':
                 print('登録を開始します')
-                create_task_db(input_task)
+                task_db.create_task_db(input_task)
                 print('登録が成功しました')
                 return True
             else:
@@ -58,7 +45,7 @@ class task_document:
 
     # Task削除処理
     def Delete_task():
-        task_document.blank()
+        task_app_function.blank()
         print('Taskを削除します')   
         input_task_del_number = input('削除したいTaskの番号を入力してください')
         if task_document.cheak_input_blenk(input_task_del_number):
@@ -67,13 +54,13 @@ class task_document:
             return False
         else:
             input_task_del = task_document.input_type_change_int(input_task_del_number)
-            delete_task_db(input_task_del)
+            task_db.delete_task_db(input_task_del)
             print('削除に成功しました！')
             return True
 
     # Task編集処理
     def Edit_task():
-        task_document.blank()
+        task_app_function.blank()
         print('Task内容を変更します。')
         input_task_edit_number = input('変更したいTaskの番号を入力してください')
         if task_document.cheak_input_blenk(input_task_edit_number):
@@ -82,7 +69,7 @@ class task_document:
             return False
         else:
             input_task_edit = task_document.input_type_change_int(input_task_edit_number)
-            result_edit =  edit_search_task_db(input_task_edit)
+            result_edit =  task_db.edit_search_task_db(input_task_edit)
             print(f'変更する内容は「{result_edit[0][1]}」でお間違え無いですか？')
             your_select = input('お間違いなければ「y」を入力してください')
             if your_select == 'y':
@@ -96,7 +83,7 @@ class task_document:
                     your_select = input('お間違いなければ「y」を入力してください')
                     if your_select == 'y':
                         print('変更を開始します')
-                        edit_task_db(edit_task,input_task_edit_number)
+                        task_db.edit_task_db(edit_task,input_task_edit_number)
                         print('変更が成功しました')
                         return True
                     else:

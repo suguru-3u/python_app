@@ -3,7 +3,7 @@ import function
 import sql
 import os
 from task_design_document import task_document
-
+from sql import task_db
 
 class TestCalc(unittest.TestCase):
 
@@ -30,7 +30,7 @@ class TestCalc(unittest.TestCase):
   #   print(TestCalc.blank)
   #   print('test_Create_taskのテスト開始')
   #   print('案内通りにTaskを入力してください')
-  #   self.assertEqual(True, task_document.Create_task())   
+  #   self.assertEqual(True, task_db.task_document.Create_task())   
   #   print('test_Create_taskのテスト終了')
   #   print(TestCalc.blank)
   
@@ -38,7 +38,7 @@ class TestCalc(unittest.TestCase):
   #   print(TestCalc.blank)
   #   print('test_Create_taskのテスト開始')
   #   print('Taskを空白で入力してください')
-  #   self.assertEqual(False, task_document.Create_task())   
+  #   self.assertEqual(False, task_db.task_document.Create_task())   
   #   print('test_Create_taskのテスト終了')
       # print(TestCalc.blank)
 
@@ -47,7 +47,7 @@ class TestCalc(unittest.TestCase):
   #   print(TestCalc.blank)
   #   print('test_Create_taskのテスト開始')
   #   print('入力確認で[y]以外を入力してください')
-  #   self.assertEqual(False, task_document.Create_task())   
+  #   self.assertEqual(False, task_db.task_document.Create_task())   
   #   print('test_Create_taskのテスト終了')
   #   print(TestCalc.blank)
 
@@ -59,14 +59,14 @@ class TestCalc(unittest.TestCase):
     print(TestCalc.border)
     print(TestCalc.blank)
     print('test_Delete_task_1のテスト開始')
-    self.assertEqual(True, task_document.Delete_task())   
+    self.assertEqual(True, task_db.task_document.Delete_task())   
     print('test_Delete_task_1のテスト終了')
     print(TestCalc.blank)
 
   def test_Delete_task_2(self):
     print(TestCalc.blank)
     print('test_Delete_task_2のテスト開始')
-    self.assertEqual(False, task_document.Delete_task())   
+    self.assertEqual(False, task_db.task_document.Delete_task())   
     print('test_Delete_task_2のテスト終了')
     print(TestCalc.blank)
 
