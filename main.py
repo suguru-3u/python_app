@@ -10,10 +10,10 @@ import os
 from time import sleep
 from task_design_document import task_document
 from function import task_app_function
-from sql import get_tasks
-from sql import sql_stop
+from sql import task_db
 
 #メイン処理
+task_db.sql_start()
 task_app_function.blank()
 print(task_app_function.app_self)
 print(task_app_function.current_task)
@@ -22,7 +22,7 @@ while True:
         sleep(3)
         task_app_function.blank()
         print(task_app_function.border)
-        get_tasks()
+        task_db.get_tasks()
         print(task_app_function.border)
         task_app_function.blank()
         select = input(introduction)
@@ -35,7 +35,7 @@ while True:
         elif select == 'q':
             end_judgment = task_app_function.task_app_end_judgment()
             if end_judgment == 1:
-                sql_stop()
+                task_db.sql_stop()
                 break
             else:
                 continue
