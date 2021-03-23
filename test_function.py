@@ -75,6 +75,13 @@ class TestCalc(unittest.TestCase):
     print('test_Delete_task_2のテスト終了')
     print(TestCalc.blank)
 
+#  def test_Delete_task_2(self):
+#         print(TestCalc.blank)
+#         print('test_Delete_task_2のテスト開始')
+#         self.assertEqual(False, task_db.task_document.Delete_task())   
+#         print('test_Delete_task_2のテスト終了')
+#         print(TestCalc.blank)
+
   
 if __name__ == '__main__':
     unittest.main()
